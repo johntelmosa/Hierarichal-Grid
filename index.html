@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JohnDev | Portfolio</title>
+  <link rel="icon" href="JohnDev_Logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ICON SPRITE: define each icon once, reuse with <use> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+  </svg>
+
+  <!-- HEADER: logo + navigation -->
+  <header class="site-header">
+    <a href="#" class="logo">
+      <img src="JohnDev_Logo.png" alt="JohnDev logo - Full-stack development">
+    </a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HIERARCHICAL GRID: tile size = content importance -->
+  <main class="grid" id="work">
+
+    <!-- Level 1: largest tile -->
+    <article class="tile tile--lg">
+      <span class="label"><svg class="icon"><use href="#i-code"/></svg>Featured project</span>
+      <img class="shot" src="images/bcms.svg" alt="Dashboard of the Barangay Case Management System">
+      <h1>Barangay Case Management System</h1>
+      <p>A web dashboard for barangay captains to manage cases and respondents in one place.</p>
+      <ul class="tags">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Chart.js</li>
+      </ul>
+      <a class="btn" href="#">View project</a>
+    </article>
+
+    <!-- Level 2: medium tiles -->
+    <article class="tile tile--md">
+      <span class="label"><svg class="icon"><use href="#i-code"/></svg>Project</span>
+      <img class="thumb" src="images/scheduler.svg" alt="Calendar of the Laboratory Scheduling System">
+      <h2>Laboratory Scheduling System</h2>
+      <p>Reserve and cancel lab schedules so teachers stop double-booking.</p>
+      <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+    </article>
+
+    <article class="tile tile--md">
+      <span class="label"><svg class="icon"><use href="#i-code"/></svg>Project</span>
+      <img class="thumb" src="images/shelfmate.svg" alt="ShelfMate book tracker app on a phone">
+      <h2>ShelfMate</h2>
+      <p>A mobile app to track the books you read.</p>
+      <ul class="tags"><li>React Native</li><li>Expo</li><li>TypeScript</li></ul>
+    </article>
+
+    <section class="tile tile--md" id="about">
+      <span class="label"><svg class="icon"><use href="#i-user"/></svg>About</span>
+      <img class="thumb" src="images/avatar.svg" alt="Profile photo placeholder">
+      <h2>About me</h2>
+      <p>I'm John, a BSIT student at Davao del Sur State College. I build full-stack web and mobile apps.</p>
+    </section>
+
+    <!-- Level 3: small tiles -->
+    <section class="tile tile--sm">
+      <svg class="icon"><use href="#i-zap"/></svg>
+      <h3>Skills</h3>
+      <p>HTML, CSS, JavaScript, TypeScript</p>
+    </section>
+
+    <a class="tile tile--sm" href="#">
+      <svg class="icon"><use href="#i-github"/></svg>
+      <h3>GitHub</h3>
+      <p>https://github.com/johntelmosa</p>
+    </a>
+
+    <section class="tile tile--sm">
+      <svg class="icon"><use href="#i-layers"/></svg>
+      <h3>Tech stack</h3>
+      <p>Expo, React Native, Chart.js</p>
+    </section>
+
+    <a class="tile tile--sm" href="mailto:your-email@example.com" id="contact">
+      <svg class="icon"><use href="#i-mail"/></svg>
+      <h3>Contact</h3>
+      <p>johnvincenttelmosa@gmail.com</p>
+    </a>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>JohnDev &middot; Est. 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

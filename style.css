@@ -1,0 +1,192 @@
+/* ---------- Basics ---------- */
+* { box-sizing: border-box; margin: 0; }
+
+:root {
+  --bg: #ffffff;
+  --logo-gray: #eeeeee;   /* matches the logo background */
+  --tile: #ffffff;
+  --line: #d5dcf5;
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --accent: #3b5bdb;
+  --page: #eef2ff;        /* page background */
+  --glow: #3b5bdb;        /* hover and focus color */
+  --gap: 12px;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  color: var(--ink);
+  /* layers: two color glows, a faint grid, then the base color */
+  background:
+    radial-gradient(900px 500px at 85% -10%, rgba(59, 91, 219, 0.22), transparent 60%),
+    radial-gradient(700px 500px at 0% 45%, rgba(34, 211, 238, 0.20), transparent 60%),
+    linear-gradient(rgba(59, 91, 219, 0.07) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgba(59, 91, 219, 0.07) 1px, transparent 1px) 0 0 / 48px 48px,
+    var(--page);
+  background-attachment: fixed;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Icons ---------- */
+.icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px;
+  background: var(--logo-gray);
+}
+
+.logo img { height: 72px; display: block; }
+
+nav { display: flex; gap: 20px; font-size: 15px; }
+nav a:hover { color: var(--accent); }
+
+/* ---------- The hierarchical grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 170px;
+  gap: var(--gap);
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+
+/* ---------- Tiles ---------- */
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 16px;
+  background: var(--tile);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.2s, transform 0.15s ease-out;
+}
+
+.tile:hover { border-color: var(--glow); }
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: auto;   /* pushes the label to the top */
+  font-size: 12px;
+  color: var(--muted);
+}
+.label .icon { width: 14px; height: 14px; }
+
+.tile p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+/* Level 1: biggest = most important */
+.tile--lg {
+  grid-column: span 2;
+  grid-row: span 3;
+  padding: 24px;
+  background: var(--accent);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+.tile--lg:hover { border-color: #fff; }
+.tile--lg .label { margin-bottom: 12px; color: #dbe2ff; }
+.tile--lg .shot { flex: 1; min-height: 0; width: 100%; object-fit: contain; margin-bottom: 16px; }
+.tile--lg h1 { font-size: 28px; }
+.tile.tile--lg p { font-size: 15px; color: #e8ecff; }
+
+/* Level 2: medium (text on the left, picture on the right) */
+.tile--md { grid-column: span 2; padding-right: calc(38% + 28px); }
+.tile--md h2 { font-size: 20px; }
+.thumb {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38%;
+  height: calc(100% - 24px);
+  object-fit: contain;
+}
+
+/* Level 3: small (icon on top, text at the bottom) */
+.tile--sm .icon { margin-bottom: auto; color: var(--accent); }
+.tile--sm h3 { font-size: 15px; font-weight: 500; }
+
+/* "About me" sits at the bottom-left (next to the small tiles) */
+#about { grid-column: 1 / 3; grid-row: 4; }
+
+/* ---------- Fade-in (the class is added by script.js) ---------- */
+.reveal {
+  animation: fade-in 0.5s ease backwards;
+  animation-delay: calc(var(--i) * 80ms);
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(16px); }
+}
+
+/* ---------- Tags and button ---------- */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 0;
+  list-style: none;
+}
+.tags li {
+  padding: 2px 8px;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+}
+.tile--lg .tags li { border-color: rgba(255, 255, 255, 0.45); color: #fff; }
+
+.btn {
+  align-self: flex-start;
+  margin-top: 16px;
+  padding: 8px 14px;
+  font-size: 14px;
+  background: #fff;
+  color: var(--ink);
+  border-radius: 6px;
+}
+.btn:hover { background: var(--ink); color: #fff; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- Keyboard focus ---------- */
+a:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
+
+/* ---------- Tablet and phone: 2 columns ---------- */
+@media (max-width: 800px) {
+  .grid { grid-template-columns: repeat(2, 1fr); padding: 0 16px; }
+  #about { grid-column: span 2; grid-row: auto; }
+  .logo img { height: 56px; }
+  .site-header { padding: 8px 16px; }
+  .tile--md { padding-right: calc(34% + 24px); }
+  .thumb { width: 34%; }
+}
+
+@media (max-width: 560px) {
+  .tile--lg { grid-row: span 2; }
+  .tile--lg .shot { display: none; }
+}
