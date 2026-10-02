@@ -31,6 +31,22 @@
     </nav>
   </header>
 
+  <!-- INTRO: what this website is for -->
+  <section class="intro wrap">
+    <div>
+      <h1>Hi, I'm John. This is my developer portfolio.</h1>
+      <p>I made this one-page site to show the web and mobile projects I've built, the skills behind them, and how to reach me.</p>
+    </div>
+    <div class="legend">
+      <p class="legend__title">How to read this page</p>
+      <ul>
+        <li><span class="key key--lg"></span>Largest tile: my featured project</li>
+        <li><span class="key key--md"></span>Medium tiles: other projects and a short bio</li>
+        <li><span class="key key--sm"></span>Small tiles: quick links and info</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- HIERARCHICAL GRID: tile size = content importance -->
   <main class="grid" id="work">
 
@@ -38,7 +54,7 @@
     <article class="tile tile--lg">
       <span class="label"><svg class="icon"><use href="#i-code"/></svg>Featured project</span>
       <img class="shot" src="images/bcms.svg" alt="Dashboard of the Barangay Case Management System">
-      <h1>Barangay Case Management System</h1>
+      <h2>Barangay Case Management System</h2>
       <p>A web dashboard for barangay captains to manage cases and respondents in one place.</p>
       <ul class="tags">
         <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Chart.js</li>
@@ -63,7 +79,7 @@
       <ul class="tags"><li>React Native</li><li>Expo</li><li>TypeScript</li></ul>
     </article>
 
-    <section class="tile tile--md" id="about">
+    <section class="tile tile--md" id="bio">
       <span class="label"><svg class="icon"><use href="#i-user"/></svg>About</span>
       <img class="thumb" src="images/avatar.svg" alt="Profile photo placeholder">
       <h2>About me</h2>
@@ -77,7 +93,7 @@
       <p>HTML, CSS, JavaScript, TypeScript</p>
     </section>
 
-    <a class="tile tile--sm" href="#">
+    <a class="tile tile--sm" href="https://github.com/johntelmosa">
       <svg class="icon"><use href="#i-github"/></svg>
       <h3>GitHub</h3>
       <p>https://github.com/johntelmosa</p>
@@ -89,7 +105,7 @@
       <p>Expo, React Native, Chart.js</p>
     </section>
 
-    <a class="tile tile--sm" href="mailto:your-email@example.com" id="contact">
+    <a class="tile tile--sm" href="mailto:johnvincenttelmosa@gmail.com" id="contact">
       <svg class="icon"><use href="#i-mail"/></svg>
       <h3>Contact</h3>
       <p>johnvincenttelmosa@gmail.com</p>
@@ -97,10 +113,43 @@
 
   </main>
 
+  <!-- DETAILS: more about me -->
+  <section class="details wrap" id="about">
+    <h2>More about me</h2>
+    <div class="details__grid">
+
+      <div class="card">
+        <h3>Who I am</h3>
+        <p>I'm a BSIT student who enjoys turning ideas into working apps. I build the screens people see and the logic behind them, which is why I call myself a full-stack developer in training.</p>
+      </div>
+
+      <div class="card">
+        <h3>Quick facts</h3>
+        <dl>
+          <dt>Name</dt><dd>John Vincent L. Telmosa</dd>
+          <dt>School</dt><dd>Davao del Sur State College</dd>
+          <dt>Course</dt><dd>BS Information Technology</dd>
+          <dt>Location</dt><dd>Santa Cruz, Davao del Sur, Philippines</dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <h3>What I'm into</h3>
+        <ul>
+          <li>Working on my BSIT capstone project with my team</li>
+          <li>Learning React, Node.js, and Express</li>
+          <li>Outside of code: reading books, basketball, and gaming</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
   <footer class="site-footer">
     <p>JohnDev &middot; Est. 2026</p>
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
